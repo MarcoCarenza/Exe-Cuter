@@ -11,6 +11,13 @@ public class HoverManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+            GameObject hitObject = hit.collider.gameObject;
+            print(hitObject.name);
+
+        }
     }
 }
