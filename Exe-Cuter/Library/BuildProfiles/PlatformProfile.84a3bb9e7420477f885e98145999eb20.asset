@@ -11,13 +11,13 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 15003, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: UnityEditor.dll::UnityEditor.Build.Profile.BuildProfile
   m_AssetVersion: 1
   m_BuildTarget: 20
   m_Subtarget: 0
   m_PlatformId: 84a3bb9e7420477f885e98145999eb20
   m_PlatformBuildProfile:
-    rid: 2668362182371835911
+    rid: 2668362183413334026
   m_OverrideGlobalSceneList: 0
   m_Scenes: []
   m_ScriptingDefines: []
@@ -26,7 +26,7 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 2668362182371835911
+    - rid: 2668362183413334026
       type: {class: WebGLPlatformSettings, ns: UnityEditor.WebGL, asm: UnityEditor.WebGL.Extensions}
       data:
         m_Development: 0
@@ -40,6 +40,8 @@ MonoBehaviour:
         m_ExplicitArrayBoundsChecks: 0
         m_CompressionType: -1
         m_InstallInBuildFolder: 0
+        m_InsightsSettingsContainer:
+          m_BuildProfileEngineDiagnosticsState: 2
         m_CodeOptimization: 4
         m_WebGLClientBrowserPath: 
         m_WebGLClientBrowserType: 0
