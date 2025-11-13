@@ -440,8 +440,6 @@
 "Assets/Scripts/Attachable.cs"
 "Assets/Scripts/AttachedTo.cs"
 "Assets/Scripts/AttachSystem.cs"
-"Assets/Scripts/Drawer.cs"
-"Assets/Scripts/HoverManager.cs"
 "Assets/Scripts/InspectSystem.cs"
 "Assets/TutorialInfo/Scripts/Readme.cs"
 -langversion:9.0
