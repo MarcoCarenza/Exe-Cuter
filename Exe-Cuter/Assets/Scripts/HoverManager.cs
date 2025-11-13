@@ -5,7 +5,7 @@ public class HoverManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        print("start");
+        /*print("start");*/
     }
 
     // Update is called once per frame
@@ -16,8 +16,9 @@ public class HoverManager : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
             GameObject hitObject = hit.collider.gameObject;
-            print(hitObject.name);
-
+            if (hitObject.CompareTag("Drawer"))
+            {
+            }
         }
     }
 }
