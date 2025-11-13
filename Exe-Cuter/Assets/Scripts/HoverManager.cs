@@ -2,23 +2,28 @@ using UnityEngine;
 
 public class HoverManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        /*print("start");*/
-    }
-
-    // Update is called once per frame
+    private Drawer currentDrawer;
+    
     void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
+        Drawer hitDrawer = null; 
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            GameObject hitObject = hit.collider.gameObject;
-            if (hitObject.CompareTag("Drawer"))
-            {
-            }
+            hitDrawer = hit.collider.GetComponent<Drawer>(); // 每帧查看是否指向抽屉
         }
+        
+        if (hitDrawer is not null && currentDrawer != hitDrawer)
+        {
+            currentDrawer = hitDrawer;
+            currentDrawer.OnHoverEnter();
+        }
+        
+        if (currentDrawer is not null && currentDrawer != hitDrawer) 
+        {
+            currentDrawer.OnHoverExit();
+            currentDrawer = null;
+        }
+
     }
 }
