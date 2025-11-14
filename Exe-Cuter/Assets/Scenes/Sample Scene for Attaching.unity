@@ -880,6 +880,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Attachable
   attachSystem: {fileID: 1550200236}
   highlightColor: {r: 1, g: 0.08237281, b: 0.015686274, a: 1}
+  previewColor: {r: 0.5849056, g: 0.5815948, b: 0.5815948, a: 0.3}
 --- !u!1001 &1892064358
 PrefabInstance:
   m_ObjectHideFlags: 0

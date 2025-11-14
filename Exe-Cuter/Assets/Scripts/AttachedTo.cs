@@ -2,6 +2,25 @@
 
 public class AttachedTo : MonoBehaviour
 {
+    private void OnMouseOver()
+    {
+        if (AttachSystem.selectedAttachable == null)
+            return;
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+            // Update preview position and rotation
+            AttachSystem.selectedAttachable.UpdatePreview(hit);
+        }
+    }
+
+    private void OnMouseExit()
+    {
+        if (AttachSystem.selectedAttachable != null)
+            AttachSystem.selectedAttachable.DestroyPreview();
+    }
+    
     private void OnMouseDown()
     {
         if (AttachSystem.selectedAttachable == null)
@@ -10,16 +29,22 @@ public class AttachedTo : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            // Align attachable to surface
-            var attachable = AttachSystem.selectedAttachable.transform;
-            attachable.position = hit.point;
+            var attachable = AttachSystem.selectedAttachable;
 
-            // Rotate attachable so its forward (Z) faces away from the surface
-            attachable.rotation = Quaternion.LookRotation(-hit.normal);
+            // Destroy the preview BEFORE parenting
+            attachable.DestroyPreview();
 
-            // Parent attachable to this object
-            attachable.SetParent(transform);
+            // Move and rotate attachable to surface
+            attachable.transform.position = hit.point;
+            attachable.transform.rotation = Quaternion.LookRotation(-hit.normal);
 
+            // Parent it to this object
+            attachable.transform.SetParent(transform);
+            
+            // Mark as attached so it can’t be selected again
+            attachable.MarkAsAttached();
+
+            // Deselect attachable
             AttachSystem.ClearSelectedAttachable();
         }
     }

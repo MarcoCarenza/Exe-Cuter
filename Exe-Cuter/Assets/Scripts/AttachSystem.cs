@@ -16,7 +16,10 @@ public class AttachSystem : MonoBehaviour
 
     public static void ClearSelectedAttachable()
     {
-        selectedAttachable.DeselectEffect();
-        selectedAttachable = null;
+        if (selectedAttachable != null)
+        {
+            selectedAttachable.DeselectEffect();
+            selectedAttachable = null;
+        }
     }
 }
