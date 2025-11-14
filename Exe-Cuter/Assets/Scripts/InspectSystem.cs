@@ -11,13 +11,13 @@ public class InspectSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             previousMousePosition = Input.mousePosition;
         }
 
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(1))
         {
             Vector3 deltaMousePostion = Input.mousePosition - previousMousePosition;
             float rotationX = deltaMousePostion.y * rotationSpeed * Time.deltaTime;
