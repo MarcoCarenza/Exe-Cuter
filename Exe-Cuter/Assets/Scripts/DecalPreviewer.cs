@@ -12,6 +12,7 @@ public class DecalPreviewer : MonoBehaviour
     public float scaleSpeed = 1f;
     public float minScale = 0.1f;
     public float maxScale = 5f;
+    public float projectionOffset = 0.01f;
 
     private float rotationX = 0f;
     private float rotationY = 0f;
@@ -79,7 +80,8 @@ public class DecalPreviewer : MonoBehaviour
         if (previewInstance == null) return;
 
         // Keep preview in world space while hovering
-        previewInstance.transform.position = hit.point;
+        Vector3 offsetPos = hit.point + hit.normal * projectionOffset;
+        previewInstance.transform.position = offsetPos;
         previewInstance.transform.rotation = Quaternion.LookRotation(hit.normal) * Quaternion.Euler(rotationX, rotationY, 0);
         if (decalProjector != null)
             decalProjector.size = Vector3.one * scale;

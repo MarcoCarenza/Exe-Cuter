@@ -22,7 +22,7 @@ public class DecalPainter : MonoBehaviour
 
                     // Compute local position/rotation relative to target
                     finalDecal.transform.SetParent(DecalPreviewer.currentTarget.transform);
-                    finalDecal.transform.localPosition = DecalPreviewer.currentTarget.transform.InverseTransformPoint(finalDecal.transform.position);
+                    finalDecal.transform.position += finalDecal.transform.forward * DecalPreviewer.instance.projectionOffset;
                     finalDecal.transform.localRotation = Quaternion.Inverse(DecalPreviewer.currentTarget.transform.rotation) * finalDecal.transform.rotation;
 
                     finalDecal.name = "PlacedDecal";
