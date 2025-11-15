@@ -3,24 +3,38 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 public class Drawer : MonoBehaviour
-{
+{   
+    public AudioClip openSFX;
+    public AudioClip closeSFX;
+
+
     [SerializeField] private Vector3 moveOffset;
     [SerializeField] private float moveSpeed;
+    private AudioSource audioSource;
     private Vector3 startPosition;
     private Coroutine moveCoroutine;
+    
     void Start()
     {
         startPosition = transform.position;
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void OnHoverEnter()
     {
         Vector3 targetPosition = startPosition + moveOffset;
         StartMove(targetPosition);
+
+        audioSource.clip = openSFX;
+        audioSource.Stop();
+        audioSource.Play();
     }
 
     public void OnHoverExit()
     {
+        audioSource.clip = closeSFX;
+        audioSource.Stop();
+        audioSource.Play();
         StartMove(startPosition);
     }
 
