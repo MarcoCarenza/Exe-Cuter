@@ -12,11 +12,12 @@ public class DecalPreviewer : MonoBehaviour
     public float scaleSpeed = 1f;
     public float minScale = 0.1f;
     public float maxScale = 5f;
-    public float projectionOffset = 0.01f;
+    public float projectionOffset = 0.01f; //I dont think this works
+    
 
     private float rotationX = 0f;
     private float rotationY = 0f;
-    private float scale = 1f;
+    private float scale = 1f; //doesnt do anything???
     
     private DecalProjector decalProjector;
     
