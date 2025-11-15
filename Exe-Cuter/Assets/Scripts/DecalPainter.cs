@@ -1,46 +1,45 @@
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class DecalPainter : MonoBehaviour
 {
-    public DecalCube cube;
     void Update()
     {
         if (DecalSelector.CurrentDecalPrefab == null)
             return;
 
-        if (Input.GetMouseButtonDown(0))
+        if (!Input.GetMouseButtonDown(0))
+            return;
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (!Physics.Raycast(ray, out RaycastHit hit))
+            return;
+        
+        if (DecalPreviewer.previewInstance != null && DecalPreviewer.currentTarget != null)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hit))
-            {
-                var attachedTo = hit.collider.GetComponentInParent<AttachedTo>();
-                if (attachedTo == null)
-                    return;
-                if (DecalPreviewer.previewInstance != null && DecalPreviewer.currentTarget != null)
-                {
-                    GameObject finalDecal = DecalPreviewer.previewInstance;
-                    DecalPreviewer.previewInstance = null;
+            GameObject finalDecal = DecalPreviewer.previewInstance;
+            DecalPreviewer.previewInstance = null;
 
-                    // Compute local position/rotation relative to target
-                    //MARCO MAKING CHANGED BELOW IS ORIGINAL
-                    // finalDecal.transform.SetParent(DecalPreviewer.currentTarget.transform);
-                    //  finalDecal.transform.position += finalDecal.transform.forward * DecalPreviewer.instance.projectionOffset;
-                    //  finalDecal.transform.localRotation = Quaternion.Inverse(DecalPreviewer.currentTarget.transform.rotation) * finalDecal.transform.rotation;
+            DecalProjector projector = finalDecal.GetComponent<DecalProjector>();
+            Transform target = DecalPreviewer.currentTarget.transform;
 
+            // --- NEW: Save world transform BEFORE parenting ---
+            Vector3 worldPos = projector.transform.position;
+            Quaternion worldRot = projector.transform.rotation;
+            Vector3 size = projector.size;   // Keep chosen scale
 
-                    //new code
-                   
-                    Vector3 scale = new Vector3(.1f,.1f,.1f);
+            // Parent under target
+            projector.transform.SetParent(target, worldPositionStays: false);
 
-                    finalDecal.transform.localScale = scale;
-                    finalDecal.transform.SetParent(DecalPreviewer.currentTarget.transform);
-                    finalDecal.transform.position = cube.transform.position;
-                  
+            // Restore world → local
+            projector.transform.position = worldPos;
+            projector.transform.rotation = worldRot;
 
-                    finalDecal.name = "PlacedDecal";
-                   
-                }
-            }
+            // Restore size
+            projector.size = size;
+
+            finalDecal.name = "PlacedDecal";
         }
     }
 }

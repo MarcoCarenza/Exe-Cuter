@@ -5,23 +5,23 @@ public class DecalPreviewer : MonoBehaviour
 {
     public static GameObject previewInstance;
     public static DecalPreviewer instance;
+
     public static AttachedTo currentTarget { get; private set; }
 
     [Header("Rotation & Scale Settings")]
-    public float rotationSpeed = 90f; // degrees/sec
-    public float scaleSpeed = 1f;
+    public float rotationSpeed = 90f;
+    public float scaleSpeed = 0.1f;
     public float minScale = 0.1f;
     public float maxScale = 5f;
-    public float projectionOffset = 0.01f; //I dont think this works
-    
+    public float projectionOffset = 0.01f;
 
     private float rotationX = 0f;
     private float rotationY = 0f;
-    private float scale = 1f; //doesnt do anything???
-    
+    public float currentScale = 1f;   // <-- used by final decal
+
     private DecalProjector decalProjector;
-    
-    private void Awake()
+
+    void Awake()
     {
         instance = this;
     }
@@ -33,59 +33,60 @@ public class DecalPreviewer : MonoBehaviour
             DestroyPreview();
             return;
         }
-        
+
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hit))
-        {
-            var target = hit.collider.GetComponentInParent<AttachedTo>();
-            if (target != null)
-            {
-                currentTarget = target; // store current object
 
-                if (previewInstance == null)
-                    CreatePreview();
-
-                UpdatePreviewTransform(hit);
-                HandleRotation();
-                HandleScaling();
-            }
-            else
-            {
-                currentTarget = null;
-                DestroyPreview();
-            }
-        }
-        else
+        if (!Physics.Raycast(ray, out RaycastHit hit))
         {
             DestroyPreview();
+            return;
         }
+
+        var target = hit.collider.GetComponentInParent<AttachedTo>();
+        if (target == null)
+        {
+            DestroyPreview();
+            return;
+        }
+
+        currentTarget = target;
+
+        if (previewInstance == null)
+            CreatePreview();
+
+        UpdatePreviewTransform(hit);
+        HandleRotation();
+        HandleScaling();
     }
 
     private void CreatePreview()
     {
         previewInstance = Instantiate(DecalSelector.CurrentDecalPrefab);
 
-        // Reset root scale first
-        previewInstance.transform.localScale = Vector3.one;
+        decalProjector = previewInstance.GetComponent<DecalProjector>();
 
-        // Then apply preview scale variable
-        previewInstance.transform.localScale = Vector3.one * scale;
+        // Initial projector size
+        decalProjector.size = Vector3.one * currentScale;
 
         MakeTransparent(previewInstance);
-        
-        decalProjector = previewInstance.GetComponent<DecalProjector>();
     }
 
     private void UpdatePreviewTransform(RaycastHit hit)
     {
-        if (previewInstance == null) return;
+        if (!previewInstance || decalProjector == null)
+            return;
 
-        // Keep preview in world space while hovering
-        Vector3 offsetPos = hit.point + hit.normal * projectionOffset;
-        previewInstance.transform.position = offsetPos;
-        previewInstance.transform.rotation = Quaternion.LookRotation(hit.normal) * Quaternion.Euler(rotationX, rotationY, 0);
-        if (decalProjector != null)
-            decalProjector.size = Vector3.one * scale;
+        // Position
+        Vector3 pos = hit.point + hit.normal * projectionOffset;
+        decalProjector.transform.position = pos;
+
+        // Rotation
+        decalProjector.transform.rotation =
+            Quaternion.LookRotation(hit.normal) *
+            Quaternion.Euler(rotationX, rotationY, 0);
+
+        // Scaling (size, not transform scale!)
+        decalProjector.size = Vector3.one * currentScale;
     }
 
     private void HandleRotation()
@@ -95,63 +96,39 @@ public class DecalPreviewer : MonoBehaviour
         if (Input.GetKey(KeyCode.W)) rotationX -= rotationSpeed * Time.deltaTime;
         if (Input.GetKey(KeyCode.S)) rotationX += rotationSpeed * Time.deltaTime;
     }
-    
+
     private void HandleScaling()
     {
-        if (previewInstance == null) return;
-
         float scroll = Input.mouseScrollDelta.y;
         if (Mathf.Abs(scroll) > 0.01f)
         {
-            // Make the scale change noticeable
-            float scaleStep = scroll * 0.1f; 
-            scale = Mathf.Clamp(scale + scaleStep, 0.1f, 5f);
-            if (decalProjector != null)
-            {
-                decalProjector.size = Vector3.one * scale;
-            }
-            Debug.Log("Preview scale: " + scale);
+            currentScale = Mathf.Clamp(currentScale + scroll * scaleSpeed, minScale, maxScale);
+            decalProjector.size = Vector3.one * currentScale;
+
+            Debug.Log("Preview projector size = " + decalProjector.size);
         }
     }
 
     private void MakeTransparent(GameObject obj)
     {
-        Renderer[] rends = obj.GetComponentsInChildren<Renderer>();
-        foreach (Renderer r in rends)
+        foreach (Renderer r in obj.GetComponentsInChildren<Renderer>())
         {
+            if (!r.material) continue;
             Material m = new Material(r.material);
             Color c = m.color;
             c.a = 0.5f;
             m.color = c;
-            m.SetFloat("_Mode", 3); // transparent mode
-            m.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
-            m.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-            m.SetInt("_ZWrite", 0);
-            m.DisableKeyword("_ALPHATEST_ON");
-            m.EnableKeyword("_ALPHABLEND_ON");
-            m.DisableKeyword("_ALPHAPREMULTIPLY_ON");
-            m.renderQueue = 3000;
-
             r.material = m;
         }
     }
 
     public void DestroyPreview()
     {
-        if (previewInstance != null)
+        if (previewInstance)
             Destroy(previewInstance);
 
         previewInstance = null;
-        rotationY = 0f;
-        scale = 1f;
-    }
-
-    public GameObject ConsumePreview()
-    {
-        GameObject temp = previewInstance;
-        previewInstance = null;
-        rotationY = 0f;
-        scale = 1f;
-        return temp;
+        rotationX = rotationY = 0f;
+        currentScale = 1f;
     }
 }

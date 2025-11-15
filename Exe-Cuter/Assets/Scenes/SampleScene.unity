@@ -448,6 +448,7 @@ MonoBehaviour:
   minScale: 0.1
   maxScale: 5
   projectionOffset: 0.01
+  currentScale: 1
 --- !u!114 &50635168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,7 +461,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55bfc6645628d0c4b9b860ac9e5d4427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecalPainter
-  cube: {fileID: 2084365545}
 --- !u!4 &50635169
 Transform:
   m_ObjectHideFlags: 0
@@ -1752,13 +1752,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1197166713}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.079, y: 0.386, z: -0.462}
+  m_LocalRotation: {x: -0.03626334, y: -0.019536275, z: -0.044548687, w: 0.9981577}
+  m_LocalPosition: {x: 0.066, y: 0.386, z: -0.462}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 621102304}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -4.251, y: -2.056, z: -5.035}
 --- !u!114 &1197166716
 MonoBehaviour:
   m_ObjectHideFlags: 0
