@@ -3,8 +3,6 @@ using UnityEngine;
 public class Attachable : MonoBehaviour
 {
     public AttachSystem attachSystem;
-    public AudioClip pickupSFX;
-    public AudioClip placeDownSFX;
 
     private Renderer[] renderers;
     private Color[] originalColors;

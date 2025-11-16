@@ -2,9 +2,7 @@
 
 public class AttachedTo : MonoBehaviour
 {
-    private AudioSource _as;
-
-
+    
     private void OnMouseOver()
     {
         if (AttachSystem.selectedAttachable == null)
@@ -46,11 +44,9 @@ public class AttachedTo : MonoBehaviour
             
             // Mark as attached so it can’t be selected again
             attachable.MarkAsAttached();
-
+            
             // Play object specific audio:
-            _as.Stop();
-            _as.clip = attachable.placeDownSFX;
-            _as.Play();
+            attachable.attachSystem.playPlaceDownSFX();
 
             // Deselect attachable
             AttachSystem.ClearSelectedAttachable();
