@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     public bool isLerping;
     public GameObject ScreenSpaceCanvas;
     private float currentLerpTime = 0;
+    public Timer timer;
+
+    private bool abc = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,9 +31,11 @@ public class GameManager : MonoBehaviour
         if (!isLerping) return;
         camera.transform.position = Vector3.Slerp(StartLoc.position, EndLoc.position, currentLerpTime);
         currentLerpTime += Time.deltaTime * lerpSpeed;
-        if (currentLerpTime >= 1)
+        if (currentLerpTime >= 1 && !abc)
         {
             ScreenSpaceCanvas.SetActive(true);
+            timer.StartTimer();
+            abc = true;
         }
     }
 
