@@ -33,7 +33,7 @@ public class AttachedTo : MonoBehaviour
             // Final placement
             at.ApplyFinalTransform(hit.point, hit.normal, transform);
 
-            at.attachSystem.playPlaceDownSFX();
+            AttachSystem.instance.playPlaceDownSFX();
 
             AttachSystem.ClearSelectedAttachable();
         }

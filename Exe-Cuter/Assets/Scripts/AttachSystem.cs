@@ -3,6 +3,7 @@ using UnityEngine;
 public class AttachSystem : MonoBehaviour
 {
     public static Attachable selectedAttachable;
+    public static AttachSystem instance;
 
     private AudioSource _as;
     public AudioClip pickupSFXGem;
@@ -13,6 +14,7 @@ public class AttachSystem : MonoBehaviour
     void Start()
     {
         _as = GetComponent<AudioSource>();
+        instance = this;
     }
 
     void Update()

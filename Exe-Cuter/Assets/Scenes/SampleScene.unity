@@ -364,7 +364,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.51353, y: 1.52, z: 3.82}
-  m_LocalScale: {x: 2.8502, y: 1, z: 1.737}
+  m_LocalScale: {x: 3.333879, y: 1.1697, z: 2.031769}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -630,7 +630,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 0.98399985, z: -10.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1703,6 +1703,79 @@ MonoBehaviour:
   m_FadeFactor: 1
   version: 1
   m_DecalLayerMask: 1
+--- !u!1001 &1448764513
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2843620320100398018, guid: 851e045c8ace5e3418c6497eef507021, type: 3}
+      propertyPath: m_Name
+      value: THEGEMSDRAWER
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757016751562082071, guid: 851e045c8ace5e3418c6497eef507021, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757016751562082071, guid: 851e045c8ace5e3418c6497eef507021, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.8594594
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757016751562082071, guid: 851e045c8ace5e3418c6497eef507021, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.31351352
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757016751562082071, guid: 851e045c8ace5e3418c6497eef507021, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757016751562082071, guid: 851e045c8ace5e3418c6497eef507021, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757016751562082071, guid: 851e045c8ace5e3418c6497eef507021, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757016751562082071, guid: 851e045c8ace5e3418c6497eef507021, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757016751562082071, guid: 851e045c8ace5e3418c6497eef507021, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757016751562082071, guid: 851e045c8ace5e3418c6497eef507021, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757016751562082071, guid: 851e045c8ace5e3418c6497eef507021, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757016751562082071, guid: 851e045c8ace5e3418c6497eef507021, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757016751562082071, guid: 851e045c8ace5e3418c6497eef507021, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757016751562082071, guid: 851e045c8ace5e3418c6497eef507021, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757016751562082071, guid: 851e045c8ace5e3418c6497eef507021, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 851e045c8ace5e3418c6497eef507021, type: 3}
 --- !u!1 &1520438179
 GameObject:
   m_ObjectHideFlags: 0
@@ -2376,7 +2449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8013008760189649580, guid: 99485d6446712be44ac5d693d2bd2545, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10
+      value: -11.67
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2391,6 +2464,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1013264245515432785, guid: 3f8ffc45ef10c2445806cb6f6d634da5, type: 3}
+      propertyPath: m_Size.x
+      value: 1.201521
+      objectReference: {fileID: 0}
+    - target: {fileID: 1013264245515432785, guid: 3f8ffc45ef10c2445806cb6f6d634da5, type: 3}
+      propertyPath: m_Center.x
+      value: -0.10076063
+      objectReference: {fileID: 0}
     - target: {fileID: 3057523519984402130, guid: 3f8ffc45ef10c2445806cb6f6d634da5, type: 3}
       propertyPath: m_Name
       value: THESTICKERDRAWER
@@ -2696,5 +2777,6 @@ SceneRoots:
   - {fileID: 603624077}
   - {fileID: 1975050331}
   - {fileID: 1977842929}
+  - {fileID: 1448764513}
   - {fileID: 779564900}
   - {fileID: 68277828}
