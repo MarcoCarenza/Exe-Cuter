@@ -43,8 +43,12 @@ public class AttachSystem : MonoBehaviour
                 Attachable at = hit.collider.GetComponentInParent<Attachable>();
                 if (at != null)
                 {
+                    DecalSelector.ClearSelectedDecal();
                     ClearSelectedAttachable();
                     selectedAttachable = at;
+                    
+                    selectedAttachable.ApplyGemScalingRules();
+                    
                     selectedAttachable.SelectEffect();
                     playPickupSFX();
                     return;

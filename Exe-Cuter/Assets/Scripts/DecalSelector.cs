@@ -31,7 +31,7 @@ public class DecalSelector : MonoBehaviour
                 {
                     CurrentDecalPrefab = source.decalPrefab;
                     Debug.Log("Selected decal: " + source.decalPrefab.name + " at hit: " + hit.collider.name);
-                    
+                    AttachSystem.ClearSelectedAttachable();
 
                     _as.Stop();
                     _as.clip = pickUpSFX;
@@ -41,4 +41,14 @@ public class DecalSelector : MonoBehaviour
             }
         }
     }
+    
+    public static void ClearSelectedDecal()
+    {
+        CurrentDecalPrefab = null;
+
+        // Remove decal preview if any
+        if (DecalPreviewer.instance != null)
+            DecalPreviewer.instance.DestroyPreview();
+    }
+
 }
