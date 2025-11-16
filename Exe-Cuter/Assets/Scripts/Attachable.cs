@@ -3,41 +3,63 @@ using UnityEngine;
 public class Attachable : MonoBehaviour
 {
     public AttachSystem attachSystem;
-    // You are either a gem or a plushy, they have different sfx.
+
     public bool isAGem = false;
 
     private Renderer[] renderers;
     private Color[] originalColors;
     [SerializeField] private Color highlightColor = Color.yellow;
-    
+
     private GameObject previewInstance;
-    [SerializeField] public Color previewColor = new Color(0.1f, 0.1f, 0.1f, 0.1f);
-    
+    [SerializeField] public Color previewColor = new Color(1f, 1f, 1f, 0.4f);
+
+    private float rotationX = 0f;
+    private float rotationY = 0f;
+    private float currentScale = 1f;
+
+    private const float rotationSpeed = 90f;
+    private const float scaleSpeed = 0.1f;
+    private const float minScale = 0.2f;
+    private const float maxScale = 4f;
 
     private void Awake()
     {
         renderers = GetComponentsInChildren<Renderer>();
         originalColors = new Color[renderers.Length];
+
         for (int i = 0; i < renderers.Length; i++)
             originalColors[i] = renderers[i].material.color;
     }
-    
+
+    // --------------------------
+    // PREVIEW UPDATE
+    // --------------------------
     public void UpdatePreview(RaycastHit hit)
     {
         if (previewInstance == null)
             CreatePreview();
 
+        HandleRotationInput();
+        HandleScaleInput();
+
         previewInstance.transform.position = hit.point;
-        previewInstance.transform.rotation = Quaternion.LookRotation(-hit.normal);
+        previewInstance.transform.rotation =
+            Quaternion.LookRotation(-hit.normal) *
+            Quaternion.Euler(rotationX, rotationY, 0);
+
+        previewInstance.transform.localScale = Vector3.one * currentScale;
     }
-    
+
+    // --------------------------
+    // PREVIEW CREATION
+    // --------------------------
     private void CreatePreview()
     {
         previewInstance = Instantiate(gameObject);
         DestroyPreviewColliders(previewInstance);
 
-        Renderer[] previewRenderers = previewInstance.GetComponentsInChildren<Renderer>();
-        foreach (Renderer r in previewRenderers)
+        Renderer[] rds = previewInstance.GetComponentsInChildren<Renderer>();
+        foreach (Renderer r in rds)
         {
             Material m = new Material(r.material);
             m.color = previewColor;
@@ -47,8 +69,7 @@ public class Attachable : MonoBehaviour
 
     private void DestroyPreviewColliders(GameObject obj)
     {
-        Collider[] colliders = obj.GetComponentsInChildren<Collider>();
-        foreach (Collider c in colliders)
+        foreach (Collider c in obj.GetComponentsInChildren<Collider>())
             Destroy(c);
     }
 
@@ -56,39 +77,74 @@ public class Attachable : MonoBehaviour
     {
         if (previewInstance != null)
         {
-            // Unparent to avoid being destroyed along with anything else
-            previewInstance.transform.parent = null;
             Destroy(previewInstance);
             previewInstance = null;
         }
     }
-    
+
+    // --------------------------
+    // INPUT DURING PREVIEW
+    // --------------------------
+    private void HandleRotationInput()
+    {
+        if (Input.GetKey(KeyCode.A)) rotationY -= rotationSpeed * Time.deltaTime;
+        if (Input.GetKey(KeyCode.D)) rotationY += rotationSpeed * Time.deltaTime;
+        if (Input.GetKey(KeyCode.W)) rotationX -= rotationSpeed * Time.deltaTime;
+        if (Input.GetKey(KeyCode.S)) rotationX += rotationSpeed * Time.deltaTime;
+    }
+
+    private void HandleScaleInput()
+    {
+        float scroll = Input.mouseScrollDelta.y;
+        if (Mathf.Abs(scroll) > 0.01f)
+        {
+            currentScale = Mathf.Clamp(
+                currentScale + scroll * scaleSpeed,
+                minScale,
+                maxScale
+            );
+        }
+    }
+
+    // --------------------------
+    // FINAL ATTACH
+    // --------------------------
+    public void ApplyFinalTransform(Vector3 pos, Vector3 normal, Transform parent)
+    {
+        DestroyPreview();
+
+        transform.position = pos;
+        transform.rotation =
+            Quaternion.LookRotation(-normal) *
+            Quaternion.Euler(rotationX, rotationY, 0);
+
+        transform.localScale = Vector3.one * currentScale;
+
+        transform.SetParent(parent);
+
+        MarkAsAttached();
+    }
+
     public void MarkAsAttached()
     {
         DestroyPreview();
 
-        // Disable colliders so it can't be clicked again
-        Collider[] cols = GetComponentsInChildren<Collider>();
-        foreach (var c in cols)
+        foreach (Collider c in GetComponentsInChildren<Collider>())
             c.enabled = false;
     }
 
-
-    private void SetHighlight(bool enabled)
-    {
-        for (int i = 0; i < renderers.Length; i++)
-        {
-            renderers[i].material.color = enabled ? highlightColor : originalColors[i];
-        }
-    }
-    
-    public void DeselectEffect()
-    {
-        SetHighlight(false);
-    }
-    
+    // --------------------------
+    // HIGHLIGHT
+    // --------------------------
     public void SelectEffect()
     {
-        SetHighlight(true);
+        foreach (Renderer r in renderers)
+            r.material.color = highlightColor;
+    }
+
+    public void DeselectEffect()
+    {
+        for (int i = 0; i < renderers.Length; i++)
+            renderers[i].material.color = originalColors[i];
     }
 }
