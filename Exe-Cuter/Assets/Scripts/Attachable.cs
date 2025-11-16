@@ -3,6 +3,8 @@ using UnityEngine;
 public class Attachable : MonoBehaviour
 {
     public AttachSystem attachSystem;
+    // You are either a gem or a plushy, they have different sfx.
+    public bool isAGem = false;
 
     private Renderer[] renderers;
     private Color[] originalColors;

@@ -4,9 +4,15 @@ public class AttachSystem : MonoBehaviour
 {
     public static Attachable selectedAttachable;
     private AudioSource _as;
-    public AudioClip pickupSFX;
-    public AudioClip placeDownSFX;
-
+    public AudioClip pickupSFXGem;
+    public AudioClip placeDownSFXGem;
+    public AudioClip pickupSFXPlushies;
+    public AudioClip placeDownSFXPlushies;
+    
+    void Start()
+    {
+        _as = GetComponent<AudioSource>();
+    }
     public void SelectNewAttachable(Attachable newAttachable)
     {
         // Deselect the previous one
@@ -31,14 +37,14 @@ public class AttachSystem : MonoBehaviour
     public void playPlaceDownSFX()
     {
         _as.Stop();
-        _as.clip = placeDownSFX;
+        _as.clip = selectedAttachable.isAGem ? placeDownSFXGem : placeDownSFXPlushies;
         _as.Play();
     }
     
     public void playPickupSFX()
     {
         _as.Stop();
-        _as.clip = pickupSFX;
+        _as.clip = selectedAttachable.isAGem ? pickupSFXGem : pickupSFXPlushies;
         _as.Play();
     }
 }

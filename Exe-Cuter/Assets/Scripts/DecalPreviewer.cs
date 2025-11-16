@@ -57,6 +57,7 @@ public class DecalPreviewer : MonoBehaviour
         UpdatePreviewTransform(hit);
         HandleRotation();
         HandleScaling();
+        HandleCancelSelection();
     }
 
     private void CreatePreview()
@@ -87,6 +88,12 @@ public class DecalPreviewer : MonoBehaviour
 
         // Scaling (size, not transform scale!)
         decalProjector.size = Vector3.one * currentScale;
+    }
+    
+    private void HandleCancelSelection()
+    {
+        if (Input.GetKey(KeyCode.Escape)) DecalSelector.CurrentDecalPrefab = null;
+
     }
 
     private void HandleRotation()
