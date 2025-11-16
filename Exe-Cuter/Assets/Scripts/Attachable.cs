@@ -18,14 +18,17 @@ public class Attachable : MonoBehaviour
     private float currentScale = 1f;
 
     private const float rotationSpeed = 90f;
-    private const float scaleSpeed = 0.4f;
+    private const float scaleSpeed = 0.2f;
     private const float minScale = 0.2f;
     private const float maxScale = 15f;
+    
+    private Vector3 baseScale;
 
     private void Awake()
     {
         renderers = GetComponentsInChildren<Renderer>();
         originalColors = new Color[renderers.Length];
+        baseScale = transform.localScale;   // ← store original prefab size
 
         for (int i = 0; i < renderers.Length; i++)
             originalColors[i] = renderers[i].material.color;
@@ -47,7 +50,8 @@ public class Attachable : MonoBehaviour
             Quaternion.LookRotation(-hit.normal) *
             Quaternion.Euler(rotationX, rotationY, 0);
 
-        previewInstance.transform.localScale = Vector3.one * currentScale;
+        previewInstance.transform.localScale = baseScale * currentScale;
+
     }
 
     // --------------------------
@@ -119,7 +123,8 @@ public class Attachable : MonoBehaviour
             Quaternion.LookRotation(-normal) *
             Quaternion.Euler(rotationX, rotationY, 0);
 
-        Vector3 worldScale = Vector3.one * currentScale;
+        Vector3 worldScale = baseScale * currentScale;
+
 
 // Parent
         transform.SetParent(parent, worldPositionStays: false);
