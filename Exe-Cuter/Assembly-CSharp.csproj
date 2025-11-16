@@ -60,12 +60,14 @@
     <Compile Include="Assets\Scripts\Drawer.cs" />
     <Compile Include="Assets\Scripts\DecalCube.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\Scripts\TextScrollCuzFunny.cs" />
     <Compile Include="Assets\Scripts\SFXManager.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\AttachSystem.cs" />
     <None Include="Library\PackageCache\com.unity.ai.navigation@5218e4bf7edc\ValidationExceptions.json" />
     <None Include="C:\Program Files\Unity\Hub\Editor\6000.2.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.subsystems\package.json" />
     <None Include="Library\PackageCache\com.unity.render-pipelines.universal@4976252adeb8\package.json" />
+    <None Include="Library\PackageCache\com.unity.services.cloud-build@8193a1137e9f\package.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="C:\Program Files\Unity\Hub\Editor\6000.2.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.jsonserialize\package.json" />
     <None Include="Library\PackageCache\com.unity.burst@1df634d836b8\package.json" />
@@ -118,17 +120,21 @@
     <None Include="Library\PackageCache\com.unity.nuget.mono-cecil@d78732e851eb\package.json" />
     <None Include="C:\Program Files\Unity\Hub\Editor\6000.2.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.particlesystem\package.json" />
     <None Include="C:\Program Files\Unity\Hub\Editor\6000.2.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.physics2d\package.json" />
+    <None Include="Library\PackageCache\com.unity.services.core@9e81a5e38245\ValidationExceptions.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="C:\Program Files\Unity\Hub\Editor\6000.2.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.vr\package.json" />
+    <None Include="Library\PackageCache\com.unity.services.core@9e81a5e38245\package.json" />
     <None Include="Library\PackageCache\com.unity.visualscripting@b4d700247d4b\ValidationExceptions.json" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
     <None Include="Library\PackageCache\com.unity.ide.visualstudio@74aa435fc4bb\ValidationExceptions.json" />
+    <None Include="Library\PackageCache\com.unity.nuget.newtonsoft-json@74deb55db2a0\link.xml" />
     <None Include="C:\Program Files\Unity\Hub\Editor\6000.2.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.wind\package.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="C:\Program Files\Unity\Hub\Editor\6000.2.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.umbra\package.json" />
+    <None Include="Library\PackageCache\com.unity.nuget.newtonsoft-json@74deb55db2a0\package.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Library\PackageCache\com.unity.inputsystem@be6c4fd0abf5\ValidationExceptions.json" />
@@ -145,6 +151,7 @@
     <None Include="Library\PackageCache\com.unity.ai.navigation@5218e4bf7edc\package.json" />
     <None Include="C:\Program Files\Unity\Hub\Editor\6000.2.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.xr\package.json" />
     <None Include="Library\PackageCache\com.unity.ugui@7056cb05de4c\Editor Resources\Shaders\TMP_Properties.cginc" />
+    <None Include="Library\PackageCache\com.unity.nuget.newtonsoft-json@74deb55db2a0\Runtime\AOT\Newtonsoft.Json.xml" />
     <None Include="Library\PackageCache\com.unity.timeline@6b9e48457ddb\ValidationExceptions.json" />
     <None Include="Library\PackageCache\com.unity.ugui@7056cb05de4c\Editor Resources\Shaders\TMP_SDF Internal Editor.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
@@ -159,6 +166,7 @@
     <None Include="Library\PackageCache\com.unity.mathematics@8017b507cc74\ValidationExceptions.json" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="C:\Program Files\Unity\Hub\Editor\6000.2.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.animation\package.json" />
+    <None Include="Library\PackageCache\com.unity.nuget.newtonsoft-json@74deb55db2a0\Runtime\Newtonsoft.Json.xml" />
     <None Include="Library\PackageCache\com.unity.collections@aea9d3bd5e19\pvpExceptions.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Library\PackageCache\com.unity.burst@1df634d836b8\Unity.Burst.Unsafe.xml" />
@@ -548,6 +556,9 @@
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>C:\Users\lihan\Exe-Cuter\Exe-Cuter\Library\PackageCache\com.unity.visualscripting@b4d700247d4b\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>C:\Users\lihan\Exe-Cuter\Exe-Cuter\Library\PackageCache\com.unity.nuget.newtonsoft-json@74deb55db2a0\Runtime\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>C:\Users\lihan\Exe-Cuter\Exe-Cuter\Library\PackageCache\com.unity.nuget.mono-cecil@d78732e851eb\Mono.Cecil.dll</HintPath>
     </Reference>
@@ -930,6 +941,10 @@
       <Project>{add7f0d5-7bd6-8df0-09d1-0ab0f818b8ee}</Project>
       <Name>Unity.TextMeshPro</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.Services.Core.csproj">
+      <Project>{8370bdb2-9348-c3e7-0522-95ca8d2b0da0}</Project>
+      <Name>Unity.Services.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.AI.Navigation.csproj">
       <Project>{944f5589-f22e-edb3-fc81-9a2726538054}</Project>
       <Name>Unity.AI.Navigation</Name>
@@ -990,6 +1005,10 @@
       <Project>{daefd1a2-3b23-7ecc-1032-aa8b1bb514aa}</Project>
       <Name>Unity.VisualScripting.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.Services.Core.Components.csproj">
+      <Project>{b2e302a2-c2d8-f856-5c53-375b301ba0e8}</Project>
+      <Name>Unity.Services.Core.Components</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.Mathematics.Editor.csproj">
       <Project>{4c314ecf-c525-8c82-3e96-655bf39935ba}</Project>
       <Name>Unity.Mathematics.Editor</Name>
@@ -1001,6 +1020,10 @@
     <ProjectReference Include="Unity.Rider.Editor.csproj">
       <Project>{6b2e8e02-0e06-8c2f-3019-5257d1c9dfac}</Project>
       <Name>Unity.Rider.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Services.Core.Analytics.csproj">
+      <Project>{d5f52c4e-99bd-6d72-ad4b-f13be78d7363}</Project>
+      <Name>Unity.Services.Core.Analytics</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.AI.Navigation.Editor.ConversionSystem.csproj">
       <Project>{164afe3e-d962-af7c-8d7f-5a2cc91b7133}</Project>
@@ -1065,6 +1088,10 @@
     <ProjectReference Include="Unity.Multiplayer.Center.Common.csproj">
       <Project>{280b1801-8410-234b-123e-8778f87f6c20}</Project>
       <Name>Unity.Multiplayer.Center.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Services.Core.Environments.csproj">
+      <Project>{70bd1b2a-013b-b908-c188-fc2cd20cfae8}</Project>
+      <Name>Unity.Services.Core.Environments</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Burst.csproj">
       <Project>{2085e181-1e73-f97c-0d12-9be8a719cbc0}</Project>
