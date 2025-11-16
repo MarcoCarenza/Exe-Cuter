@@ -338,7 +338,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &7513317046714562974
+--- !u!1001 &2905389318351949631
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -346,59 +346,59 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1999330718668067922, guid: f0bcaecad36982a46a2f733e4c8d619e, type: 3}
+    - target: {fileID: 900038690709437527, guid: 1f88211b68dce784e957908a15eb7f65, type: 3}
+      propertyPath: m_Name
+      value: Sticker Drawer
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570362402652129410, guid: 1f88211b68dce784e957908a15eb7f65, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.193
+      value: 18.233
       objectReference: {fileID: 0}
-    - target: {fileID: 1999330718668067922, guid: f0bcaecad36982a46a2f733e4c8d619e, type: 3}
+    - target: {fileID: 7570362402652129410, guid: 1f88211b68dce784e957908a15eb7f65, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.18094
+      value: 2.5516
       objectReference: {fileID: 0}
-    - target: {fileID: 1999330718668067922, guid: f0bcaecad36982a46a2f733e4c8d619e, type: 3}
+    - target: {fileID: 7570362402652129410, guid: 1f88211b68dce784e957908a15eb7f65, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.30243
+      value: -8.1783
       objectReference: {fileID: 0}
-    - target: {fileID: 1999330718668067922, guid: f0bcaecad36982a46a2f733e4c8d619e, type: 3}
+    - target: {fileID: 7570362402652129410, guid: 1f88211b68dce784e957908a15eb7f65, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1999330718668067922, guid: f0bcaecad36982a46a2f733e4c8d619e, type: 3}
+    - target: {fileID: 7570362402652129410, guid: 1f88211b68dce784e957908a15eb7f65, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1999330718668067922, guid: f0bcaecad36982a46a2f733e4c8d619e, type: 3}
+    - target: {fileID: 7570362402652129410, guid: 1f88211b68dce784e957908a15eb7f65, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1999330718668067922, guid: f0bcaecad36982a46a2f733e4c8d619e, type: 3}
+    - target: {fileID: 7570362402652129410, guid: 1f88211b68dce784e957908a15eb7f65, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1999330718668067922, guid: f0bcaecad36982a46a2f733e4c8d619e, type: 3}
+    - target: {fileID: 7570362402652129410, guid: 1f88211b68dce784e957908a15eb7f65, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1999330718668067922, guid: f0bcaecad36982a46a2f733e4c8d619e, type: 3}
+    - target: {fileID: 7570362402652129410, guid: 1f88211b68dce784e957908a15eb7f65, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1999330718668067922, guid: f0bcaecad36982a46a2f733e4c8d619e, type: 3}
+    - target: {fileID: 7570362402652129410, guid: 1f88211b68dce784e957908a15eb7f65, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9137184238085791879, guid: f0bcaecad36982a46a2f733e4c8d619e, type: 3}
-      propertyPath: m_Name
-      value: Sticker Drawer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f0bcaecad36982a46a2f733e4c8d619e, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 1f88211b68dce784e957908a15eb7f65, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1730752703}
   - {fileID: 66724473}
-  - {fileID: 7513317046714562974}
+  - {fileID: 2905389318351949631}
