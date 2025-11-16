@@ -1973,6 +1973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa554dd1ef775634fa77c4f83274c116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  activate: 0
+  fuckingActivatePlease: 0
   textCrawl: {fileID: 7505007361442248744}
   sped: 22
+  myInteger: 0
