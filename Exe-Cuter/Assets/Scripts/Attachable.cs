@@ -21,11 +21,6 @@ public class Attachable : MonoBehaviour
         for (int i = 0; i < renderers.Length; i++)
             originalColors[i] = renderers[i].material.color;
     }
-
-    private void OnMouseDown()
-    {
-        attachSystem.SelectNewAttachable(this);
-    }
     
     public void UpdatePreview(RaycastHit hit)
     {
