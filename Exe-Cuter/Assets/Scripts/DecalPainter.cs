@@ -3,6 +3,13 @@ using UnityEngine.Rendering.Universal;
 
 public class DecalPainter : MonoBehaviour
 {
+    public AudioClip putDownSFX;
+    private AudioSource _as;
+    void Start()
+    {
+        _as = GetComponent<AudioSource>();
+    }
+
     void Update()
     {
         if (DecalSelector.CurrentDecalPrefab == null)
@@ -40,6 +47,11 @@ public class DecalPainter : MonoBehaviour
             projector.size = size;
 
             finalDecal.name = "PlacedDecal";
+
+            // Play audio
+            _as.Stop();
+            _as.clip = putDownSFX;   
+            _as.Play();
         }
     }
 }

@@ -3,6 +3,14 @@ using UnityEngine;
 public class DecalSelector : MonoBehaviour
 {
     public static GameObject CurrentDecalPrefab;
+    public AudioClip pickUpSFX;
+    private AudioSource _as;
+    
+    void Start()
+    {
+        _as = GetComponent<AudioSource>();
+        _as.clip = pickUpSFX;
+    }
 
     void Update()
     {
@@ -23,6 +31,11 @@ public class DecalSelector : MonoBehaviour
                 {
                     CurrentDecalPrefab = source.decalPrefab;
                     Debug.Log("Selected decal: " + source.decalPrefab.name + " at hit: " + hit.collider.name);
+                    
+
+                    _as.Stop();
+                    _as.clip = pickUpSFX;
+                    _as.Play();
                     break; // stop at the first DecalSource found
                 }
             }
