@@ -1019,7 +1019,8 @@ Transform:
   m_LocalPosition: {x: 0.025675558, y: -0.26546887, z: -1.9436074}
   m_LocalScale: {x: 0.10769224, y: 0.1292307, z: 2.0380435}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 762200441339758441}
   m_Father: {fileID: 5700503127871457799}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6600887099492673818
@@ -2468,11 +2469,11 @@ Transform:
   m_GameObject: {fileID: 3912274792053465650}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.021583304, y: -0.2693458, z: -5.877031}
-  m_LocalScale: {x: 0.107692234, y: 0.1292307, z: 2.0380435}
+  m_LocalPosition: {x: -0.037999522, y: -0.030000027, z: -1.9299997}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 5700503127871457799}
+  m_Father: {fileID: 927480804163899743}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3899756464440597844
 MonoBehaviour:
@@ -2881,7 +2882,8 @@ Transform:
   m_LocalPosition: {x: -0.2615322, y: 0.25148654, z: -1.9436074}
   m_LocalScale: {x: 0.10769224, y: 0.1292307, z: 2.0380435}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 1255850663174476807}
   m_Father: {fileID: 5700503127871457799}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &359353172018514125
@@ -4580,11 +4582,11 @@ Transform:
   m_GameObject: {fileID: 6538728220837297216}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.12208031, y: 0.24760959, z: -5.877031}
-  m_LocalScale: {x: 0.107692234, y: 0.1292307, z: 2.0380435}
+  m_LocalPosition: {x: -0.037999593, y: -0.030000258, z: -1.9299997}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 5700503127871457799}
+  m_Father: {fileID: 7937233927273089266}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5117224352450218739
 MonoBehaviour:
@@ -4938,11 +4940,11 @@ Transform:
   m_GameObject: {fileID: 7721319309872901038}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.26562446, y: 0.24760959, z: -5.877031}
-  m_LocalScale: {x: 0.107692234, y: 0.1292307, z: 2.0380435}
+  m_LocalPosition: {x: -0.03799973, y: -0.030000258, z: -1.9299997}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 5700503127871457799}
+  m_Father: {fileID: 6312683215106220252}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7718482609904636444
 MonoBehaviour:
@@ -6244,7 +6246,8 @@ Transform:
   m_LocalPosition: {x: -0.11798805, y: 0.25148654, z: -1.9436074}
   m_LocalScale: {x: 0.10769224, y: 0.1292307, z: 2.0380435}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 2965106285370156033}
   m_Father: {fileID: 5700503127871457799}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9005270827683715284
@@ -6452,7 +6455,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9137184238085791879, guid: f0bcaecad36982a46a2f733e4c8d619e, type: 3}
       propertyPath: m_Name
-      value: Sticker Drawer Variant 1
+      value: THESTICKERDRAWER
       objectReference: {fileID: 0}
     - target: {fileID: 9137184238085791879, guid: f0bcaecad36982a46a2f733e4c8d619e, type: 3}
       propertyPath: m_IsActive
@@ -6481,13 +6484,7 @@ PrefabInstance:
       addedObject: {fileID: 6312683215106220252}
     - targetCorrespondingSourceObject: {fileID: 1999330718668067922, guid: f0bcaecad36982a46a2f733e4c8d619e, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1255850663174476807}
-    - targetCorrespondingSourceObject: {fileID: 1999330718668067922, guid: f0bcaecad36982a46a2f733e4c8d619e, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 7937233927273089266}
-    - targetCorrespondingSourceObject: {fileID: 1999330718668067922, guid: f0bcaecad36982a46a2f733e4c8d619e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2965106285370156033}
     - targetCorrespondingSourceObject: {fileID: 1999330718668067922, guid: f0bcaecad36982a46a2f733e4c8d619e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8630407447544123500}
@@ -6527,9 +6524,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1999330718668067922, guid: f0bcaecad36982a46a2f733e4c8d619e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 927480804163899743}
-    - targetCorrespondingSourceObject: {fileID: 1999330718668067922, guid: f0bcaecad36982a46a2f733e4c8d619e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 762200441339758441}
     - targetCorrespondingSourceObject: {fileID: 1999330718668067922, guid: f0bcaecad36982a46a2f733e4c8d619e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5974470058407029705}
