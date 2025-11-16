@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GemRed
+  m_Name: GemWhite
   m_Shader: {fileID: -6465566751694194690, guid: b045cd283fc48344db12aebb0235e4ca, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -48,7 +48,7 @@ Material:
     - _QueueOffset: 0
     - _Shades: 0.2
     m_Colors:
-    - _Color: {r: 1, g: 0.09996985, b: 0, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &7594658629824460349
