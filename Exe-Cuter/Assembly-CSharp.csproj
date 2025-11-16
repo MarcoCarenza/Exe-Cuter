@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\FollowDrawer.cs" />
     <Compile Include="Assets\Scripts\DecalSource.cs" />
     <Compile Include="Assets\Scripts\DecalPreviewer.cs" />
+    <Compile Include="Assets\Scripts\WalkieTalkie.cs" />
     <Compile Include="Assets\Scripts\DecalSelector.cs" />
     <Compile Include="Assets\Scripts\Attachable.cs" />
     <Compile Include="Assets\Scripts\DecalPainter.cs" />
