@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: cabb2abf3c5b8d24d91aed9b000c0a2c
+guid: b1243989e01441146a30e0a18bdc1d70
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: genmstone
-    second: {fileID: 2100000, guid: b34171fe4962bab49b9fb1a730bb83e0, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
