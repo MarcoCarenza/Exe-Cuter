@@ -46,9 +46,6 @@ public class AttachSystem : MonoBehaviour
                     DecalSelector.ClearSelectedDecal();
                     ClearSelectedAttachable();
                     selectedAttachable = at;
-                    
-                    selectedAttachable.ApplyGemScalingRules();
-                    
                     selectedAttachable.SelectEffect();
                     playPickupSFX();
                     return;

@@ -17,10 +17,10 @@ public class Attachable : MonoBehaviour
     private float rotationY = 0f;
     private float currentScale = 1f;
 
-    private float rotationSpeed = 90f;
-    private float scaleSpeed = 0.2f;
-    private float minScale = 0.2f;
-    private float maxScale = 6f;
+    private const float rotationSpeed = 90f;
+    private const float scaleSpeed = 0.2f;
+    private const float minScale = 0.2f;
+    private const float maxScale = 10f;
 
     private void Awake()
     {
@@ -29,22 +29,6 @@ public class Attachable : MonoBehaviour
 
         for (int i = 0; i < renderers.Length; i++)
             originalColors[i] = renderers[i].material.color;
-    }
-
-    public void ApplyGemScalingRules()
-    {
-        if (isAGem)
-        {
-            minScale = 3f;
-            maxScale = 6f;
-            scaleSpeed = 0.2f;
-        }
-        else
-        {
-            minScale = 0.2f;
-            maxScale = 6f;
-            scaleSpeed = 0.2f;
-        }
     }
 
     // --------------------------
