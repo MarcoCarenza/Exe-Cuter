@@ -3,40 +3,49 @@ using UnityEngine;
 public class AttachSystem : MonoBehaviour
 {
     public static Attachable selectedAttachable;
+
     private AudioSource _as;
     public AudioClip pickupSFXGem;
     public AudioClip placeDownSFXGem;
     public AudioClip pickupSFXPlushies;
     public AudioClip placeDownSFXPlushies;
-    
+
     void Start()
     {
         _as = GetComponent<AudioSource>();
     }
-    
+
     void Update()
     {
+        // ----------------------------
+        // ESC CANCEL
+        // ----------------------------
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (selectedAttachable != null)
+            {
+                selectedAttachable.DestroyPreview();
+                ClearSelectedAttachable();
+            }
+            return;
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            // Cast ray and get ALL hits along the ray
             RaycastHit[] hits = Physics.RaycastAll(ray, 100f);
-            
-            // Sort hits by distance so closer objects get priority
             System.Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
 
             foreach (RaycastHit hit in hits)
             {
-                Attachable attachable = hit.collider.GetComponentInParent<Attachable>();
-                if (attachable != null)
+                Attachable at = hit.collider.GetComponentInParent<Attachable>();
+                if (at != null)
                 {
-                    // Deselect the previous one
                     ClearSelectedAttachable();
-                    // Select the new one
-                    selectedAttachable = attachable;
+                    selectedAttachable = at;
                     selectedAttachable.SelectEffect();
                     playPickupSFX();
+                    return;
                 }
             }
         }
@@ -57,7 +66,7 @@ public class AttachSystem : MonoBehaviour
         _as.clip = selectedAttachable.isAGem ? placeDownSFXGem : placeDownSFXPlushies;
         _as.Play();
     }
-    
+
     public void playPickupSFX()
     {
         _as.Stop();
