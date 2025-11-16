@@ -18,9 +18,9 @@ public class Attachable : MonoBehaviour
     private float currentScale = 1f;
 
     private const float rotationSpeed = 90f;
-    private const float scaleSpeed = 0.2f;
+    private const float scaleSpeed = 0.4f;
     private const float minScale = 0.2f;
-    private const float maxScale = 10f;
+    private const float maxScale = 15f;
 
     private void Awake()
     {
@@ -113,14 +113,27 @@ public class Attachable : MonoBehaviour
     {
         DestroyPreview();
 
-        transform.position = pos;
-        transform.rotation =
+        // Save world transform BEFORE parenting
+        Vector3 worldPos = pos;
+        Quaternion worldRot =
             Quaternion.LookRotation(-normal) *
             Quaternion.Euler(rotationX, rotationY, 0);
 
-        transform.localScale = Vector3.one * currentScale;
+        Vector3 worldScale = Vector3.one * currentScale;
 
-        transform.SetParent(parent);
+// Parent
+        transform.SetParent(parent, worldPositionStays: false);
+
+// Restore world transform back to local-space-correct values
+        transform.position = worldPos;
+        transform.rotation = worldRot;
+
+// Convert worldScale → localScale
+        transform.localScale = new Vector3(
+            worldScale.x / parent.lossyScale.x,
+            worldScale.y / parent.lossyScale.y,
+            worldScale.z / parent.lossyScale.z
+        );
 
         MarkAsAttached();
     }
